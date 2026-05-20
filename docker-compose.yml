@@ -4,7 +4,10 @@ services:
   backend:
     image: backend-test:latest
     ports:
-      - "8000:8000"
+      - target: 8000
+        published: 8000
+        protocol: tcp
+        mode: ingress
     deploy:
       replicas: 2
       restart_policy:
